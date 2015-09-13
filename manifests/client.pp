@@ -15,7 +15,6 @@ class mcollective::client(
   $mco_registration              = $mcollective::params::mco_registration,
   $mco_service_name              = $mcollective::params::mco_service_name,
   $mco_server_public             = $mcollective::params::mco_server_public,
-  $mco_client_certdir            = $mcollective::params::mco_client_certdir,
   $mco_client_public             = $mcollective::params::mco_client_public,
   $mco_client_private            = $mcollective::params::mco_client_private,
   ) inherits mcollective::params {
