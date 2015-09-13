@@ -148,3 +148,7 @@ Esse módulo foi testado nos seguintes sistemas:
 5. Esse módulo só instala os plugins Package, Service e Puppet (arquivos do PE 2015.2)
 
 6. Esse módulo não instala o ActiveMQ
+
+## Referencias
+
+http://gutocarvalho.net/octopress/2015/09/09/activemq-e-mcollective-com-ssl/
