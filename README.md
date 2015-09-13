@@ -31,18 +31,32 @@ Esse módulo foi testado nos seguintes sistemas:
 
 ### O que esse modulo gerencia?
 
-Do lado do servidor
+#### classe mcollective::server
 
-* mcollective server.cfg file
-* mcollective server public and private certificate
-* mcollective client public certificate
-* mcollective plugins {package|service|puppet}
-* mcollective facts.yml file
+* arquivo server.cfg
+* certificados publico e privado do server
+  * plugin.ssl_server_private
+  * plugin.ssl_server_public
 
-Do lado do cliente
+#### classe mcollective::server
 
-* mcollective client.cfg file
-* mcollective client public and private key
+* arquivo client.cfg
+* certificados publico e privado do client
+  * plugin.ssl_client_private
+  * plugin.ssl_client_public
+
+#### classe mcollecive::plugins
+
+* mcollective plugins 
+  * package
+  * service
+  * puppet
+
+#### classe mcollective::facts
+
+* gerencia o arquivo de fatos
+  * facts.yaml
+  * tarefa para gerar facts.yaml
 
 ## Uso
 
@@ -102,7 +116,6 @@ Do lado do cliente
     mco_server_public             => '/etc/puppetlabs/mcollective/ssl/server.crt',
     mco_client_public             => '/etc/puppetlabs/mcollective/ssl/clients/client.crt'
     mco_client_private            => '/etc/puppetlabs/mcollective/ssl/clients/client.key'
-    mco_client_cerdir             => '/etc/puppetlabs/mcollective/ssl/clients'
   }
 ```
 
@@ -126,12 +139,12 @@ Do lado do cliente
 
 1. Esse módulo não gera os certificados ssl tipo server (plugin.ssl_server_private|plugin.ssl_server_public), voce precisa gera-los e colocá-los no diretório mcollective/files/ssl
 
-2. Esse módulo não gera os certificados ssl tipo client (lugin.ssl_client_private|plugin.ssl_client_private), voce precisa colocá-lo no diretório mcollective/files/ssl
+2. Esse módulo não gera os certificados ssl tipo client (plugin.ssl_client_private|plugin.ssl_client_private), voce precisa colocá-lo no diretório mcollective/files/ssl
 
 3. Esse módulo só suporta a conexão do tipo SSL, não há suporte a PSK para securityprovider.
 
 4. Esse módulo só suporta o ActiveMQ como connector
 
-5. Esse módulo só instala os plungins Package, Service e Puppet (de origem o PE 2015)
+5. Esse módulo só instala os plugins Package, Service e Puppet (arquivos do PE 2015.2)
 
 6. Esse módulo não instala o ActiveMQ
