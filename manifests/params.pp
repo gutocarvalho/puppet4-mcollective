@@ -26,11 +26,6 @@ class mcollective::params {
     windows => 'c:/programdata/puppetlabs',
   }
 
-  $mcoplugin_dir = $::kernel ? {
-    linux   => "${puppet_optdir}/mcollective/plugins/mcollective",
-    windows => "${puppet_optdir}/mcollective/plugins/mcollective",
-  }
-
   $mco_logfile = $::kernel ? {
     linux   => '/var/log/mcollective.log',
     windows => 'c:/programdata/puppetlabs',
@@ -43,7 +38,8 @@ class mcollective::params {
 
   $puppet_ssldir                 = "${puppet_cfgdir}/puppet/ssl"
 
-  $mco_service_name              = 'mcollective'
+  $mco_optdir                    = "${puppet_optdir}/mcollective"
+  $mco_plugindir                 = "${mco_optdir}/plugins"
   $mco_cfgdir                    = "${puppet_cfgdir}/mcollective"
   $mco_libdir                    = "${puppet_optdir}/puppet/lib/ruby/vendor_ruby:${puppet_optdir}/mcollective/plugins"
   
@@ -52,6 +48,7 @@ class mcollective::params {
   $activemq_user                 = 'mcollective'
   $activemq_pass                 = 'marionette'
 
+  $mco_service_name              = 'mcollective'
   $mco_server_main_collective    = 'mcollective'
   $mco_collectives               = 'mcollective'
 
