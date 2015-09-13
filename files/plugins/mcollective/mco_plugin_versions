@@ -1,0 +1,13 @@
+Updated plugins on Thu Jul  2 17:16:15 PDT 2015
+puppetlabs/mcollective-puppet-agent is currently up to commit:
+438ed44 Merge pull request #57 from richardc/MCOP-525-process_error_undefined
+
+puppetlabs/mcollective-sshkey-security is currently up to commit:
+2d11c87 Merge pull request #13 from melissa/maint/rm-lucid
+
+puppetlabs/mcollective-package-agent is currently up to commit:
+fb99fe8 Merge pull request #22 from melissa/maint/rm-lucid
+
+puppetlabs/mcollective-service-agent is currently up to commit:
+75478ac Merge pull request #10 from melissa/maint/rm-lucid
+

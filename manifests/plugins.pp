@@ -1,17 +1,23 @@
 class mcollective::plugins (
-  $mcoplugin_dir = $mcollective::params::mcoplugin_dir,
+  $mco_plugindir = $mcollective::params::mco_plugindir,
   ) inherits mcollective::params {
 
-  file { $mcoplugin_dir:
+  file { $mco_optdir:
     ensure  => directory,
   }
 
-  file { 'mcollective_plugins_dir':
+  file { $mco_plugindir:
     ensure  => directory,
-    path    => $mcoplugin_dir,
-    source  => 'puppet:///modules/mcollective/plugins',
+    require => File[$mco_optdir],
+  }
+
+  file { 'mcollective_plugins':
+    ensure  => directory,
+    path    => "${mco_plugindir}/mcollective",
+    source  => 'puppet:///modules/mcollective/plugins/mcollective',
     recurse => true,
     purge   => true,
     force   => true,
+    require => File[$mco_plugindir],
   }
 }
