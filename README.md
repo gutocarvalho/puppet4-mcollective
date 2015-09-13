@@ -1,6 +1,6 @@
 # Mcollective
 
-#### Tabela de conteúdo
+#### Tabela de conteudo
 
 1. [Overview](#overview)
 2. [Compatibilidade](#compatibilidade)
@@ -124,5 +124,14 @@ Do lado do cliente
 
 ## Limites
 
-1. Esse módulo não gera os certificados server ou cliente, você precisa colocar os certificados no diretório files/ssl conforme o nome existente.
-2. Esse módulo só instala os plungins Package, Service e Puppet
+1. Esse módulo não gera os certificados ssl tipo server (plugin.ssl_server_private|plugin.ssl_server_public), voce precisa gera-los e colocá-los no diretório mcollective/files/ssl
+
+2. Esse módulo não gera os certificados ssl tipo client (lugin.ssl_client_private|plugin.ssl_client_private), voce precisa colocá-lo no diretório mcollective/files/ssl
+
+3. Esse módulo só suporta a conexão do tipo SSL, não há suporte a PSK para securityprovider.
+
+4. Esse módulo só suporta o ActiveMQ como connector
+
+5. Esse módulo só instala os plungins Package, Service e Puppet (de origem o PE 2015)
+
+6. Esse módulo não instala o ActiveMQ
