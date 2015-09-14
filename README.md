@@ -38,7 +38,7 @@ Esse módulo foi testado nos seguintes sistemas:
   * plugin.ssl_server_private
   * plugin.ssl_server_public
 
-#### classe mcollective::server
+#### classe mcollective::client
 
 * arquivo client.cfg
 * certificados publico e privado do client
@@ -89,7 +89,7 @@ Esse módulo foi testado nos seguintes sistemas:
     activemq_pool_ssl_cert        => '/etc/puppetlabs/puppet/ssl/certs/node.pem',
     mco_plugin_yaml               => '/etc/puppetlabs/mcollective/facts.yaml',
     mco_registerinterval          => '300',
-    mco_service_name              => 'Agentlist',
+    mco_service_name              => 'mcollective',
     mco_server_public             => '/etc/puppetlabs/mcollective/ssl/server.crt',
     mco_server_private            => '/etc/puppetlabs/mcollective/ssl/server.key',
     mco_client_cerdir             => '/etc/puppetlabs/mcollective/ssl/clients',
@@ -112,7 +112,7 @@ Esse módulo foi testado nos seguintes sistemas:
     activemq_pool_ssl_cert        => '/etc/puppetlabs/puppet/ssl/certs/node.pem',
     mco_plugin_yaml               => '/etc/puppetlabs/mcollective/facts.yaml',
     mco_registerinterval          => '300',
-    mco_service_name              => 'Agentlist',
+    mco_service_name              => 'mcollective',
     mco_server_public             => '/etc/puppetlabs/mcollective/ssl/server.crt',
     mco_client_public             => '/etc/puppetlabs/mcollective/ssl/clients/client.crt'
     mco_client_private            => '/etc/puppetlabs/mcollective/ssl/clients/client.key'
@@ -137,9 +137,9 @@ Esse módulo foi testado nos seguintes sistemas:
 
 ## Limites
 
-1. Esse módulo não gera os certificados ssl tipo server (plugin.ssl_server_private|plugin.ssl_server_public), voce precisa gera-los e colocá-los no diretório mcollective/files/ssl
+1. Esse módulo não gera os certificados ssl tipo server (plugin.ssl_server_private|plugin.ssl_server_public), você precisa gerá-los e colocá-los no diretório mcollective/files/ssl
 
-2. Esse módulo não gera os certificados ssl tipo client (plugin.ssl_client_private|plugin.ssl_client_private), voce precisa colocá-lo no diretório mcollective/files/ssl
+2. Esse módulo não gera os certificados ssl tipo client (plugin.ssl_client_private|plugin.ssl_client_private), você precisa gerá-los e colocá-los no diretório mcollective/files/ssl
 
 3. Esse módulo só suporta a conexão do tipo SSL, não há suporte a PSK para securityprovider.
 
