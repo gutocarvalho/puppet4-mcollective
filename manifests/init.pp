@@ -14,6 +14,8 @@ class mcollective (
       activemq_pool_user => $activemq_pool_user,
       activemq_pool_pass => $activemq_pool_pass,
     }
+    contain mcollective::facts
+    contain mcollective::plugins
   }
 
   if $use_client == true {
@@ -23,5 +25,6 @@ class mcollective (
       activemq_pool_user => $activemq_pool_user,
       activemq_pool_pass => $activemq_pool_pass,
     }
+    contain mcollective::plugins
   }
 }
