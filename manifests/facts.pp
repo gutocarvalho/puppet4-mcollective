@@ -5,7 +5,10 @@ class mcollective::facts(
 
   $facter_args = '/puppet/bin/facter --show-legacy'
 
-  $roda_facter = "${mco_optdir}${facter_args} > ${mco_plugin_yaml}"
+  $roda_facter = $::kernel ? {
+    'linux'   => "export LC_ALL='en_US.UTF-8' && ${mco_optdir}${facter_args} > ${mco_plugin_yaml}",
+    'windows' => "${mco_optdir}${facter_args} > ${mco_plugin_yaml}",
+  }
 
   if $::kernel == 'windows' {
     schedule { 'facter_window':
