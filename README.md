@@ -7,6 +7,8 @@
 3. [Setup](#setup)
 4. [Uso](#uso)
 5. [Limites](#limites)
+6. [Pendende](#pendente)
+7. [Referencias](#referencias)
 
 ## Overview
 
@@ -22,9 +24,9 @@ Esse módulo não instala o Mcollective, no Puppet 4 ele já vem embutido no pac
 
 Esse módulo foi testado nos seguintes sistemas:
 
-* CentOS 5,6,7
-* Debian 6,7,8
-* Windows 7,8,2k8,2k12
+* CentOS 5, 6 e 7
+* Debian 6, 7 e 8
+* Ubuntu 12.04 e 14.04
 * SLES 12
 
 ## Setup
@@ -63,7 +65,7 @@ Esse módulo foi testado nos seguintes sistemas:
 ### declarando classe mcollective
 
 ```puppet
-  class { ::mcollective::
+  class { ::mcollective:
     activemq_pool_host            => '192.168.200.80',
     activemq_pool_port            => '61614',
     activemq_pool_user            => 'mcollective',
@@ -148,6 +150,16 @@ Esse módulo foi testado nos seguintes sistemas:
 5. Esse módulo só instala os plugins Package, Service e Puppet (arquivos do PE 2015.2)
 
 6. Esse módulo não instala o ActiveMQ
+
+
+
+## Pendente
+
+Homologar nos sistemas abaixo:
+* SLES 11
+* Windows Desktop 7 e 8
+* Windows Server 2008 e 2012
+
 
 ## Referencias
 
