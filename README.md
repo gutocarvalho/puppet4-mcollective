@@ -27,7 +27,7 @@ Esse módulo foi testado nos seguintes sistemas:
 * CentOS 5, 6 e 7
 * Debian 6, 7 e 8
 * Ubuntu 12.04 e 14.04
-* SLES 12
+* SLES 11 e 12
 
 ## Setup
 
@@ -156,8 +156,6 @@ Esse módulo foi testado nos seguintes sistemas:
 ## Pendente
 
 Homologar nos sistemas abaixo:
-* SLES 11
-* Windows Desktop 7 e 8
 * Windows Server 2008 e 2012
 
 
