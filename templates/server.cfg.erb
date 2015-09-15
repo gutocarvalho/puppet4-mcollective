@@ -6,38 +6,38 @@
 ### Path: /etc/puppet/code/environment/production/modules/mcollective/templates/server.cfg.erb
 ###
 
-main_collective                   = <%= @mco_main_collective %>
-collectives                       = <%= @mco_collectives %>
-libdir                            = <%= @mco_libdir %>
-logfile                           = <%= @mco_logfile %>
-loglevel                          = <%= @mco_loglevel %>
-identity                          = <%= @mco_identity %>
-daemonize                         = <%= @mco_daemonize %>
-direct_addressing                 = <%= @mco_direct_addressing %>
+main_collective                 = <%= @mco_main_collective %>
+collectives                     = <%= @mco_collectives %>
+libdir                          = <%= @mco_libdir %>
+logfile                         = <%= @mco_logfile %>
+loglevel                        = <%= @mco_loglevel %>
+identity                        = <%= @mco_identity %>
+daemonize                       = <%= @mco_daemonize %>
+direct_addressing               = <%= @mco_direct_addressing %>
 
-connector                         = <%= @mco_connector %>
+connector                       = <%= @mco_connector %>
 
-plugin.activemq.pool.size         = <%= @activemq_pool_size %>
-plugin.activemq.pool.1.host       = <%= @activemq_pool_host %>
-plugin.activemq.pool.1.port       = <%= @activemq_pool_port %>
-plugin.activemq.pool.1.user       = <%= @activemq_pool_user %>
-plugin.activemq.pool.1.password   = <%= @activemq_pool_password %>
-plugin.activemq.pool.1.ssl        = <%= @activemq_pool_ssl %>
-plugin.activemq.pool.1.ssl.ca     = <%= @activemq_pool_ssl_ca %>
-plugin.activemq.pool.1.ssl.key    = <%= @activemq_pool_ssl_key %>
-plugin.activemq.pool.1.ssl.cert   = <%= @activemq_pool_ssl_cert %>
+plugin.activemq.pool.size       = <%= @activemq_pool_size %>
+plugin.activemq.pool.1.host     = <%= @activemq_pool_host %>
+plugin.activemq.pool.1.port     = <%= @activemq_pool_port %>
+plugin.activemq.pool.1.user     = <%= @activemq_pool_user %>
+plugin.activemq.pool.1.password = <%= @activemq_pool_password %>
+plugin.activemq.pool.1.ssl      = <%= @activemq_pool_ssl %>
+plugin.activemq.pool.1.ssl.ca   = <%= @activemq_pool_ssl_ca %>
+plugin.activemq.pool.1.ssl.key  = <%= @activemq_pool_ssl_key %>
+plugin.activemq.pool.1.ssl.cert = <%= @activemq_pool_ssl_cert %>
 
-securityprovider                  = <%= @mco_security_provider %>
-plugin.ssl_server_private         = <%= @mco_server_private %>
-plugin.ssl_server_public          = <%= @mco_server_public %>
-plugin.ssl_client_cert_dir        = <%= @mco_client_certdir %>
+securityprovider                = <%= @mco_security_provider %>
+plugin.ssl_server_private       = <%= @mco_server_private %>
+plugin.ssl_server_public        = <%= @mco_server_public %>
+plugin.ssl_client_cert_dir      = <%= @mco_client_certdir %>
 
-plugin.package.provider           = <%= @mco_plugin_package_provider %>
+plugin.package.provider         = <%= @mco_plugin_package_provider %>
 
-factsource                        = <%= @mco_factsource %>
-plugin.yaml                       = <%= @mco_plugin_yaml %>
+factsource                      = <%= @mco_factsource %>
+plugin.yaml                     = <%= @mco_plugin_yaml %>
 
-classesfile                       = <%= @mco_classesfile %>
+classesfile                     = <%= @mco_classesfile %>
 
-registerinterval                  = <%= @mco_registerinterval %>
-registration                      = <%= @mco_registration %>
+registerinterval                = <%= @mco_registerinterval %>
+registration                    = <%= @mco_registration %>

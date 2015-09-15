@@ -5,26 +5,27 @@ class mcollective::facts(
 
   $facter_args = '/puppet/bin/facter --show-legacy'
 
-  $roda_facter = $::kernel ? {
+  $facter_generate = $::kernel ? {
     'linux'   => "export LC_ALL='en_US.UTF-8' && ${mco_optdir}${facter_args} > ${mco_plugin_yaml}",
     'windows' => "${mco_optdir}${facter_args} > ${mco_plugin_yaml}",
   }
 
   if $::kernel == 'windows' {
-    schedule { 'facter_window':
-      period => hourly,
-      repeat => 2,
+    scheduled_task { 'Gerador do facter.yaml':
+      ensure    => present,
+      enabled   => true,
+      command   => $facter_generate,
+      trigger => {
+        schedule         => daily,
+        start_time       => '00:00',
+        minutes_interval => 30,
+        minutes_duration => 1440,
+      }
     }
-    exec { 'roda_facter_windows':
-      command  => $roda_facter,
-      provider => $mcollective::params::exec_provider,
-      schedule => powershell,
-    }
-  }
 
   if $::kernel == 'linux' {
     cron { 'roda_facter_linux':
-      command  => $roda_facter,
+      command  => $facter_generate,
       user     => 'root',
       month    => '*',
       monthday => '*',

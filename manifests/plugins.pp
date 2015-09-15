@@ -8,7 +8,6 @@ class mcollective::plugins (
 
   file { $mco_plugindir:
     ensure  => directory,
-    require => File[$mco_optdir],
   }
 
   file { 'mcollective_plugins':
@@ -18,6 +17,5 @@ class mcollective::plugins (
     recurse => true,
     purge   => true,
     force   => true,
-    require => File[$mco_plugindir],
   }
 }
