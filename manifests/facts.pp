@@ -11,7 +11,7 @@ class mcollective::facts(
   }
 
   if $::kernel == 'windows' {
-    scheduled_task { 'Gerador do facter.yaml':
+    scheduled_task { 'roda_facter_windows':
       ensure  => present,
       enabled => true,
       command => $facter_generate,
