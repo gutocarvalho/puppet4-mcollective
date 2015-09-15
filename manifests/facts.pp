@@ -22,6 +22,7 @@ class mcollective::facts(
         minutes_duration => 1440,
       }
     }
+  }
 
   if $::kernel == 'linux' {
     cron { 'roda_facter_linux':
