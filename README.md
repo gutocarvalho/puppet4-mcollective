@@ -62,17 +62,44 @@ Esse módulo foi testado nos seguintes sistemas:
 
 ## Uso
 
-### declarando classe mcollective
+### declarando classe mcollective de forma mínima
 
 ```puppet
   class { ::mcollective:
+    use_server                    => true,
+    use_client                    => false,
+    activemq_pool_host            => '192.168.200.80',
+    activemq_pool_port            => '61614',
+    activemq_pool_user            => 'mcollective',
+    activemq_pool_pass            => 'marionette',
+  }
+```
+
+### declarando classe mcollective com todos os argumentos permitidos
+
+```puppet
+  class { ::mcollective::server:
+    use_server                    => true,
+    use_client                    => false,
     activemq_pool_host            => '192.168.200.80',
     activemq_pool_port            => '61614',
     activemq_pool_user            => 'mcollective',
     activemq_pool_pass            => 'password',
-    use_server                    => true,
-    use_client                    => false,
-  }
+    mco_main_collective           => 'mcollective',
+    mco_collectives               => 'mcollective',
+    mco_loglevel                  => 'info',
+    activemq_pool_ssl_ca          => '/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem',
+    activemq_pool_ssl_key         => '/etc/puppetlabs/puppet/ssl/private_keys/node.pem',
+    activemq_pool_ssl_cert        => '/etc/puppetlabs/puppet/ssl/certs/node.pem',
+    mco_plugin_yaml               => '/etc/puppetlabs/mcollective/facts.yaml',
+    mco_registerinterval          => '300',
+    mco_service_name              => 'mcollective',
+    mco_server_public             => '/etc/puppetlabs/mcollective/ssl/server.crt',
+    mco_server_private            => '/etc/puppetlabs/mcollective/ssl/server.key',
+    mco_client_cerdir             => '/etc/puppetlabs/mcollective/ssl/clients',
+    mco_client_public             => '/etc/puppetlabs/mcollective/ssl/clients/client.crt'
+    mco_client_private            => '/etc/puppetlabs/mcollective/ssl/clients/client.key'
+ }
 ```
 
 ### declarando classe mcollective::server
@@ -155,8 +182,9 @@ Esse módulo foi testado nos seguintes sistemas:
 
 ## Pendente
 
-Homologar nos sistemas abaixo:
-* Windows Server 2008 e 2012
+Homologar:
+
+  * Windows Server 2008 e 2012
 
 
 ## Referencias
