@@ -36,21 +36,21 @@ class mcollective::server(
   }
 
   file {  'server_crt':
-    ensure  => file,
-    path    => $mcollective::params::mco_server_public,
-    source  => 'puppet:///modules/mcollective/ssl/server.crt',
+    ensure => file,
+    path   => $mcollective::params::mco_server_public,
+    source => 'puppet:///modules/mcollective/ssl/server.crt',
   }
 
   file { 'server_key':
-    ensure  => file,
-    path    => $mcollective::params::mco_server_private,
-    source  => 'puppet:///modules/mcollective/ssl/server.key',
+    ensure => file,
+    path   => $mcollective::params::mco_server_private,
+    source => 'puppet:///modules/mcollective/ssl/server.key',
   }
 
   file { 'client_public_default':
-    ensure  => file,
-    path    => $mcollective::params::mco_client_public,
-    source  => 'puppet:///modules/mcollective/ssl/client-public.pem',
+    ensure => file,
+    path   => $mcollective::params::mco_client_public,
+    source => 'puppet:///modules/mcollective/ssl/client-public.pem',
   }
 
   service { $mco_service_name:

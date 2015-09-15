@@ -12,9 +12,9 @@ class mcollective::facts(
 
   if $::kernel == 'windows' {
     scheduled_task { 'Gerador do facter.yaml':
-      ensure    => present,
-      enabled   => true,
-      command   => $facter_generate,
+      ensure  => present,
+      enabled => true,
+      command => $facter_generate,
       trigger => {
         schedule         => daily,
         start_time       => '00:00',
