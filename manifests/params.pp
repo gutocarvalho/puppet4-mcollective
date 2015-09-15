@@ -28,12 +28,12 @@ class mcollective::params {
 
   $mco_logfile = $::kernel ? {
     linux   => '/var/log/mcollective.log',
-    windows => 'c:/programdata/puppetlabs',
+    windows => 'c:/programdata/puppetlabs/mcollective/var/log/mcollective.log',
   }
 
   $mco_classesfile = $::kernel ? {
     linux   => '/var/lib/puppet/state/classes.txt',
-    windows => '/var/lib/puppet/state/classes.txt',
+    windows => 'c:/programdata/puppetlabs/puppet/cache/state/classes.txt',
   }
 
   $puppet_ssldir               = "${puppet_cfgdir}/puppet/ssl"
