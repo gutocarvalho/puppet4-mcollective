@@ -43,11 +43,6 @@ class mcollective::params {
   $mco_cfgdir                  = "${puppet_cfgdir}/mcollective"
   $mco_libdir                  = "${puppet_optdir}/puppet/lib/ruby/vendor_ruby:${puppet_optdir}/mcollective/plugins"
   
-  $activemq_host               = $::ipaddress
-  $activemq_port               = '61614'
-  $activemq_user               = 'mcollective'
-  $activemq_pass               = 'marionette'
-
   $mco_service_name            = 'mcollective'
   $mco_server_main_collective  = 'mcollective'
   $mco_collectives             = 'mcollective'
@@ -61,10 +56,10 @@ class mcollective::params {
   $mco_connector               = 'activemq'
 
   $activemq_pool_size          = '1'
-  $activemq_pool_host          = $activemq_host
-  $activemq_pool_port          = $activemq_port
-  $activemq_pool_user          = $activemq_user
-  $activemq_pool_password      = $activemq_pass
+  $activemq_pool_host          = $::ipaddress
+  $activemq_pool_port          = '61614'
+  $activemq_pool_user          = 'mcollective'
+  $activemq_pool_password      = 'marionette'
   $activemq_pool_ssl           = true
   $activemq_pool_ssl_ca        = "${puppet_ssldir}/ca/ca_crt.pem"
   $activemq_pool_ssl_key       = "${puppet_ssldir}/private_keys/${::fqdn}.pem"

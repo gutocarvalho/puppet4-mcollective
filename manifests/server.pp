@@ -1,8 +1,8 @@
 class mcollective::server(
-  $activemq_pool_host     = $mcollective::params::activemq_host,
-  $activemq_pool_port     = $mcollective::params::activemq_port,
-  $activemq_pool_user     = $mcollective::params::activemq_user,
-  $activemq_pool_pass     = $mcollective::params::activemq_pass,
+  $activemq_pool_host     = $mcollective::params::activemq_pool_host,
+  $activemq_pool_port     = $mcollective::params::activemq_pool_port,
+  $activemq_pool_user     = $mcollective::params::activemq_pool_user,
+  $activemq_pool_password = $mcollective::params::activemq_pool_password,
   $mco_main_collective    = $mcollective::params::mco_server_main_collective,
   $mco_collectives        = $mcollective::params::mco_collectives,
   $mco_loglevel           = $mcollective::params::mco_loglevel,
