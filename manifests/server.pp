@@ -17,10 +17,11 @@ class mcollective::server(
   $mco_server_public      = $mcollective::params::mco_server_public,
   $mco_server_private     = $mcollective::params::mco_server_private,
   $mco_client_cerdir      = $mcollective::params::mco_client_certdir,
-  $mco_ssldir             = $mcollective::params::mco_ssldir,
-  $mco_cfgdir             = $mcollective::params::mco_cfgdir,
   ) inherits mcollective::params {
 
+  $mco_ssldir             = $mcollective::params::mco_ssldir
+  $mco_cfgdir             = $mcollective::params::mco_cfgdir
+  
   file { 'server_cfg':
     ensure  => file,
     path    => "${mco_cfgdir}/server.cfg",
