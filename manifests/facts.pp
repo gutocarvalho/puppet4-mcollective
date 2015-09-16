@@ -1,20 +1,17 @@
 class mcollective::facts(
     $mco_plugin_yaml = $mcollective::params::mco_plugin_yaml,
-    $mco_optdir      = $mcollective::params::puppet_optdir,
     ) inherits mcollective::params {
 
-  $facter_args = '/puppet/bin/facter --show-legacy'
-
-  $facter_generate = $::kernel ? {
-    'linux'   => "export LC_ALL='en_US.UTF-8' && ${mco_optdir}${facter_args} > ${mco_plugin_yaml}",
-    'windows' => "${mco_optdir}${facter_args} > ${mco_plugin_yaml}",
-  }
-
+  $mco_optdir      = $mcollective::params::puppet_optdir
+  $facter_args     = '/puppet/bin/facter --show-legacy -y'
+  $facter_generate = "${mco_optdir}${facter_args} > ${mco_plugin_yaml}"
+ 
   if $::kernel == 'windows' {
-    scheduled_task { 'roda_facter_windows':
+    scheduled_task { 'run_facter_windows':
       ensure  => present,
       enabled => true,
       command => $facter_generate,
+      notify  => Exec['first_run_facter_windows'],
       trigger => {
         schedule         => daily,
         start_time       => '00:00',
@@ -22,16 +19,26 @@ class mcollective::facts(
         minutes_duration => 1440,
       }
     }
+    exec { 'first_run_facter_windows':
+      command     => $facter_generate,
+      refreshonly => true,
+    }
   }
 
   if $::kernel == 'linux' {
-    cron { 'roda_facter_linux':
-      command  => $facter_generate,
+    cron { 'run_facter_linux':
+      command  => "export LC_ALL='en_US.UTF-8' && ${facter_generate}",
       user     => 'root',
       month    => '*',
       monthday => '*',
       hour     => '*',
       minute   => '*/30',
+      notify   => Exec['first_run_facter_linux'],
+    }
+    exec { 'first_run_facter_linux':
+      command     => $facter_generate,
+      environment => "LC_ALL=en_US.UTF-8",
+      refreshonly => true,
     }
   }
 }
