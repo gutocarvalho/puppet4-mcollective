@@ -5,7 +5,7 @@ class mcollective::facts(
   $mco_optdir      = $mcollective::params::puppet_optdir
   $facter_args     = '/puppet/bin/facter --show-legacy -y'
   $facter_generate = "${mco_optdir}${facter_args} > ${mco_plugin_yaml}"
- 
+
   if $::kernel == 'windows' {
     scheduled_task { 'run_facter_windows':
       ensure  => present,
