@@ -17,5 +17,6 @@ class mcollective::plugins (
     recurse => true,
     purge   => true,
     force   => true,
+    notify  => Service[$mcollective::params::mco_service_name],
   }
 }
