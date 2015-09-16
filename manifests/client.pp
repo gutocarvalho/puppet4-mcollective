@@ -19,6 +19,8 @@ class mcollective::client(
   $mco_client_private     = $mcollective::params::mco_client_private,
   ) inherits mcollective::params {
 
+  $mco_cfgdir             = $mcollective::params::mco_cfgdir
+
   file { 'client_cfg':
     ensure  => file,
     path    => "${mco_cfgdir}/client.cfg",
