@@ -10,8 +10,8 @@ class mcollective::params {
 
   if $::kernel == 'windows' {
     File {
-      owner              => 'administrator',
-      group              => 'administrators',
+      owner              => 'Administrator',
+      group              => 'Administrators',
       source_permissions => 'ignore',
     }
   }
@@ -48,7 +48,7 @@ class mcollective::params {
   $mco_collectives             = 'mcollective'
 
   $mco_loglevel                = 'info'
-  $mco_identity                = $::fqdn
+  $mco_identity                = $::trusted['certname']
   $mco_daemonize               = '1'
   $mco_direct_addressing       = '0'
   $mco_security_provider       = 'ssl'
@@ -62,9 +62,9 @@ class mcollective::params {
   $activemq_pool_password      = 'marionette'
   $activemq_pool_ssl           = true
   $activemq_pool_ssl_ca        = "${puppet_ssldir}/certs/ca.pem"
-  $activemq_pool_ssl_key       = "${puppet_ssldir}/private_keys/${::fqdn}.pem"
-  $activemq_pool_ssl_cert      = "${puppet_ssldir}/certs/${::fqdn}.pem"
-
+  $activemq_pool_ssl_key       = "${puppet_ssldir}/private_keys/${::trusted['certname']}.pem"
+  $activemq_pool_ssl_cert      = "${puppet_ssldir}/certs/${::trusted['certname']}.pem"
+ 
   $mco_ssldir                  = "${puppet_cfgdir}/mcollective/ssl"
   $mco_client_certdir          = "${mco_ssldir}/clients"
 
