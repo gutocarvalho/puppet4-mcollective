@@ -7,20 +7,20 @@ class mcollective::facts(
   $facter_generate = "${mco_optdir}${facter_args} > ${mco_plugin_yaml}"
 
   if $::kernel == 'windows' {
-    scheduled_task { 'run_facter_windows':
-      ensure  => present,
-      enabled => true,
-      command => $facter_generate,
-      notify  => Exec['first_run_facter_windows'],
-      trigger => {
-        schedule         => daily,
-        start_time       => '00:00',
-        minutes_interval => 30,
-        minutes_duration => 1440,
-      }
+     scheduled_task { 'run_facter':
+      ensure    => present,
+      enabled   => true,
+      command   => 'c:\Windows\System32\cmd.exe',
+      arguments => "/S /C \"\"${::env_windows_installdir}\bin\facter.bat\" --show-legacy -y > ${mcollective::params::facts_yaml_path}\"",
+      trigger   => {
+        schedule         => 'daily',
+        start_time       => "00:${start_time}",
+        minutes_interval => '30',
+      },
+      notify    => Exec['first_facter_run'],
     }
-    exec { 'first_run_facter_windows':
-      command     => $facter_generate,
+    exec { 'first_facter_run':
+      command     => "\"${::env_windows_installdir}\bin\facter.bat\" --show-legacy -y > ${mcollective::params::facts_yaml_path}",
       refreshonly => true,
     }
   }

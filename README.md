@@ -24,10 +24,10 @@ Esse módulo não instala o Mcollective, no Puppet 4 ele já vem embutido no pac
 
 Esse módulo foi testado nos seguintes sistemas:
 
-* CentOS 5, 6 e 7
-* Debian 6, 7 e 8
-* Ubuntu 12.04 e 14.04
-* SLES 11 e 12
+* CentOS 5, 6 e 7       [32 e 64 bits]
+* Debian 6, 7 e 8       [42 e 64 bits]
+* Ubuntu 12.04 e 14.04  [32 e 64 bits]
+* SLES 11 e 12          [32 e 64 bits]
 
 ## Setup
 
@@ -71,7 +71,7 @@ Esse módulo foi testado nos seguintes sistemas:
     activemq_pool_host            => '192.168.200.80',
     activemq_pool_port            => '61614',
     activemq_pool_user            => 'mcollective',
-    activemq_pool_pass            => 'marionette',
+    activemq_pool_password        => 'marionette',
   }
 ```
 
@@ -84,7 +84,7 @@ Esse módulo foi testado nos seguintes sistemas:
     activemq_pool_host            => '192.168.200.80',
     activemq_pool_port            => '61614',
     activemq_pool_user            => 'mcollective',
-    activemq_pool_pass            => 'password',
+    activemq_pool_password        => 'password',
     mco_main_collective           => 'mcollective',
     mco_collectives               => 'mcollective',
     mco_loglevel                  => 'info',
@@ -102,14 +102,16 @@ Esse módulo foi testado nos seguintes sistemas:
  }
 ```
 
-### declarando classe mcollective::server
+### declarando classe mcollective::server 
+
+Essa classe é reservada, prefira chamar a classe principal.
 
 ```puppet
   class { ::mcollective::server:
     activemq_pool_host            => '192.168.200.80',
     activemq_pool_port            => '61614',
     activemq_pool_user            => 'mcollective',
-    activemq_pool_pass            => 'password',
+    activemq_pool_password        => 'password',
     mco_main_collective           => 'mcollective',
     mco_collectives               => 'mcollective',
     mco_loglevel                  => 'info',
@@ -127,12 +129,14 @@ Esse módulo foi testado nos seguintes sistemas:
 
 ### declarando classe mcollective::client
 
+Essa classe é reservada, prefira chamar a classe principal.
+
 ```puppet
   class { ::mcollective::client:
     activemq_pool_host            => '192.168.200.80',
     activemq_pool_port            => '61614',
     activemq_pool_user            => 'mcollective',
-    activemq_pool_pass            => 'password',
+    activemq_pool_password        => 'password',
     mco_main_collective           => 'mcollective',
     mco_collectives               => 'mcollective',
     mco_loglevel                  => 'info',
@@ -150,6 +154,8 @@ Esse módulo foi testado nos seguintes sistemas:
 
 ### declarando classe mcollective::facts
 
+Essa classe é reservada, prefira chamar a classe principal.
+
 ```puppet
   class { ::mcollective::facts:
     mco_plugin_yaml               => '/etc/puppetlabs/mcollective/facts.yaml',
@@ -157,6 +163,8 @@ Esse módulo foi testado nos seguintes sistemas:
 ```
 
 ### declarando classe mcollective::plugins
+
+Essa classe é reservada, prefira chamar a classe principal.
 
 ```puppet
   class { ::mcollective::plugins:

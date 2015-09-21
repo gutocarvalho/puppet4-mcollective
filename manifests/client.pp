@@ -20,6 +20,7 @@ class mcollective::client(
   ) inherits mcollective::params {
 
   $mco_cfgdir             = $mcollective::params::mco_cfgdir
+  $activemq_pool_ssl      = $mcollective::params::activemq_pool_ssl
 
   file { 'client_cfg':
     ensure  => file,

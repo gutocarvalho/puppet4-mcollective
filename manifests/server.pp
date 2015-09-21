@@ -16,7 +16,7 @@ class mcollective::server(
   $mco_service_name       = $mcollective::params::mco_service_name,
   $mco_server_public      = $mcollective::params::mco_server_public,
   $mco_server_private     = $mcollective::params::mco_server_private,
-  $mco_client_cerdir      = $mcollective::params::mco_client_certdir,
+  $mco_client_certdir     = $mcollective::params::mco_client_certdir,
   ) inherits mcollective::params {
 
   $mco_ssldir             = $mcollective::params::mco_ssldir
@@ -57,7 +57,7 @@ class mcollective::server(
   service { $mco_service_name:
     ensure  => running,
     enable  => true,
-    require => [
+    subscribe => [
       File['server_crt'],
       File['server_key'],
       File['server_cfg'],

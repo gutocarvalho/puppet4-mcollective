@@ -64,7 +64,7 @@ class mcollective::params {
   $activemq_pool_ssl_ca        = "${puppet_ssldir}/certs/ca.pem"
   $activemq_pool_ssl_key       = "${puppet_ssldir}/private_keys/${::trusted['certname']}.pem"
   $activemq_pool_ssl_cert      = "${puppet_ssldir}/certs/${::trusted['certname']}.pem"
- 
+
   $mco_ssldir                  = "${puppet_cfgdir}/mcollective/ssl"
   $mco_client_certdir          = "${mco_ssldir}/clients"
 
